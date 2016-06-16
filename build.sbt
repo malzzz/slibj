@@ -17,9 +17,11 @@ resolvers ++= Seq[Resolver](
 
 lazy val versions = new {
   val fs = "0.9.0-M3"
+  val scalajhttp = "2.3.0"
 }
 
 libraryDependencies ++= Seq(
+  "org.scalaj" %% "scalaj-http" % versions.scalajhttp,
   "co.fs2"  %% "fs2-core" % versions.fs,
   "co.fs2"  %% "fs2-io"   % versions.fs
 )
