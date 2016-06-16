@@ -879,7 +879,41 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1FaceDetection(JNIEnv 
 }
 
 
-SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFace_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jstring jarg4) {
+SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFace_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
+  jstring jresult = 0 ;
+  slibc::FaceDetection *arg1 = (slibc::FaceDetection *) 0 ;
+  std::string arg2 ;
+  unsigned long arg3 ;
+  std::string result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(slibc::FaceDetection **)&jarg1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (unsigned long)jarg3; 
+  {
+    try {
+      result = (arg1)->largestFace(arg2,arg3);
+    } catch(std::runtime_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/NoFacesFoundException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = jenv->NewStringUTF((&result)->c_str()); 
+  return jresult;
+}
+
+
+SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFace_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jstring jarg4) {
   jstring jresult = 0 ;
   slibc::FaceDetection *arg1 = (slibc::FaceDetection *) 0 ;
   std::string arg2 ;
@@ -922,11 +956,13 @@ SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFa
 }
 
 
-SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFace_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3) {
+SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFace_1_1SWIG_12(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jlong jarg3, jstring jarg4, jstring jarg5) {
   jstring jresult = 0 ;
   slibc::FaceDetection *arg1 = (slibc::FaceDetection *) 0 ;
   std::string arg2 ;
   unsigned long arg3 ;
+  std::string arg4 ;
+  std::string arg5 ;
   std::string result;
   
   (void)jenv;
@@ -942,9 +978,25 @@ SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFa
   (&arg2)->assign(arg2_pstr);
   jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
   arg3 = (unsigned long)jarg3; 
+  if(!jarg4) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg4_pstr = (const char *)jenv->GetStringUTFChars(jarg4, 0); 
+  if (!arg4_pstr) return 0;
+  (&arg4)->assign(arg4_pstr);
+  jenv->ReleaseStringUTFChars(jarg4, arg4_pstr); 
+  if(!jarg5) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg5_pstr = (const char *)jenv->GetStringUTFChars(jarg5, 0); 
+  if (!arg5_pstr) return 0;
+  (&arg5)->assign(arg5_pstr);
+  jenv->ReleaseStringUTFChars(jarg5, arg5_pstr); 
   {
     try {
-      result = (arg1)->largestFace(arg2,arg3);
+      result = (arg1)->largestFace(arg2,arg3,arg4,arg5);
     } catch(std::runtime_error& e) {
       jclass clazz = jenv->FindClass("co/quine/slibj/NoFacesFoundException");
       jenv->ThrowNew(clazz, e.what());

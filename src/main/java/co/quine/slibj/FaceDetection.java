@@ -39,12 +39,16 @@ public class FaceDetection {
     this(slibjJNI.new_FaceDetection(model), true);
   }
 
-  public String largestFace(String path, long cropSize, String outpath) {
-    return slibjJNI.FaceDetection_largestFace__SWIG_0(swigCPtr, this, path, cropSize, outpath);
+  public String largestFace(String path, long cropSize) {
+    return slibjJNI.FaceDetection_largestFace__SWIG_0(swigCPtr, this, path, cropSize);
   }
 
-  public String largestFace(String path, long cropSize) {
-    return slibjJNI.FaceDetection_largestFace__SWIG_1(swigCPtr, this, path, cropSize);
+  public String largestFace(String path, long cropSize, String outpath) {
+    return slibjJNI.FaceDetection_largestFace__SWIG_1(swigCPtr, this, path, cropSize, outpath);
+  }
+
+  public String largestFace(String path, long cropSize, String outpath, String outfile) {
+    return slibjJNI.FaceDetection_largestFace__SWIG_2(swigCPtr, this, path, cropSize, outpath, outfile);
   }
 
 }

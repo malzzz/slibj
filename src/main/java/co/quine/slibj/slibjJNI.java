@@ -14,7 +14,7 @@ public class slibjJNI {
 
 static {
     try {
-        LoadLib.fromJar("/resources/lib/libslibj.jnilib");
+        LoadLib.fromJar("/lib/libslibj.jnilib");
     } catch (IOException e) {
         try {
             File model = new File("src/main/resources/lib/libslibj.jnilib");
@@ -50,7 +50,8 @@ static {
   public final static native void ObjectModelVector_set(long jarg1, ObjectModelVector jarg1_, int jarg2, long jarg3);
   public final static native void delete_ObjectModelVector(long jarg1);
   public final static native long new_FaceDetection(String jarg1);
-  public final static native String FaceDetection_largestFace__SWIG_0(long jarg1, FaceDetection jarg1_, String jarg2, long jarg3, String jarg4);
-  public final static native String FaceDetection_largestFace__SWIG_1(long jarg1, FaceDetection jarg1_, String jarg2, long jarg3);
+  public final static native String FaceDetection_largestFace__SWIG_0(long jarg1, FaceDetection jarg1_, String jarg2, long jarg3);
+  public final static native String FaceDetection_largestFace__SWIG_1(long jarg1, FaceDetection jarg1_, String jarg2, long jarg3, String jarg4);
+  public final static native String FaceDetection_largestFace__SWIG_2(long jarg1, FaceDetection jarg1_, String jarg2, long jarg3, String jarg4, String jarg5);
   public final static native void delete_FaceDetection(long jarg1);
 }
