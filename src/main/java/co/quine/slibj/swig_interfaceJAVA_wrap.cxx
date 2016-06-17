@@ -248,6 +248,8 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 #include "Swig.h"
 #include "Types.h"
 #include "FaceDetection.h"
+#include <dlib/image_loader/image_loader.h>
+#include <dlib/image_saver/image_saver.h>
 
 
 #include <string>
@@ -341,8 +343,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1RectangleVector_1_1SW
   {
     try {
       result = (std::vector< sl::Rectangle > *)new std::vector< sl::Rectangle >();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -363,8 +365,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1RectangleVector_1_1SW
   {
     try {
       result = (std::vector< sl::Rectangle > *)new std::vector< sl::Rectangle >(arg1);
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -386,8 +388,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_RectangleVector_1size(JNIE
   {
     try {
       result = ((std::vector< sl::Rectangle > const *)arg1)->size();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -409,8 +411,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_RectangleVector_1capacity(
   {
     try {
       result = ((std::vector< sl::Rectangle > const *)arg1)->capacity();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -432,8 +434,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_RectangleVector_1reserve(JN
   {
     try {
       (arg1)->reserve(arg2);
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -453,8 +455,8 @@ SWIGEXPORT jboolean JNICALL Java_co_quine_slibj_slibjJNI_RectangleVector_1isEmpt
   {
     try {
       result = (bool)((std::vector< sl::Rectangle > const *)arg1)->empty();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -474,8 +476,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_RectangleVector_1clear(JNIE
   {
     try {
       (arg1)->clear();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -499,8 +501,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_RectangleVector_1add(JNIEnv
   {
     try {
       (arg1)->push_back((std::vector< dlib::rectangle >::value_type const &)*arg2);
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -529,8 +531,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_RectangleVector_1get(JNIEn
         return 0;
       }
       
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -565,8 +567,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_RectangleVector_1set(JNIEnv
         return ;
       }
       
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -583,8 +585,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_delete_1RectangleVector(JNI
   {
     try {
       delete arg1;
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -601,8 +603,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1ObjectModelVector_1_1
   {
     try {
       result = (std::vector< sl::ObjectModel > *)new std::vector< sl::ObjectModel >();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -623,8 +625,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1ObjectModelVector_1_1
   {
     try {
       result = (std::vector< sl::ObjectModel > *)new std::vector< sl::ObjectModel >(arg1);
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -646,8 +648,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_ObjectModelVector_1size(JN
   {
     try {
       result = ((std::vector< sl::ObjectModel > const *)arg1)->size();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -669,8 +671,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_ObjectModelVector_1capacit
   {
     try {
       result = ((std::vector< sl::ObjectModel > const *)arg1)->capacity();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -692,8 +694,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ObjectModelVector_1reserve(
   {
     try {
       (arg1)->reserve(arg2);
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -713,8 +715,8 @@ SWIGEXPORT jboolean JNICALL Java_co_quine_slibj_slibjJNI_ObjectModelVector_1isEm
   {
     try {
       result = (bool)((std::vector< sl::ObjectModel > const *)arg1)->empty();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -734,8 +736,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ObjectModelVector_1clear(JN
   {
     try {
       (arg1)->clear();
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -759,8 +761,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ObjectModelVector_1add(JNIE
   {
     try {
       (arg1)->push_back((std::vector< dlib::full_object_detection >::value_type const &)*arg2);
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -789,8 +791,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_ObjectModelVector_1get(JNI
         return 0;
       }
       
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -825,8 +827,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ObjectModelVector_1set(JNIE
         return ;
       }
       
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -843,8 +845,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_delete_1ObjectModelVector(J
   {
     try {
       delete arg1;
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
@@ -867,8 +869,8 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1FaceDetection(JNIEnv 
   {
     try {
       result = (slibc::FaceDetection *)new slibc::FaceDetection((char const *)arg1);
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -903,7 +905,7 @@ SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFa
     try {
       result = (arg1)->largestFace(arg2,arg3);
     } catch(std::runtime_error& e) {
-      jclass clazz = jenv->FindClass("co/quine/slibj/NoFacesFoundException");
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/NoFacesFoundException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -946,7 +948,7 @@ SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFa
     try {
       result = (arg1)->largestFace(arg2,arg3,arg4);
     } catch(std::runtime_error& e) {
-      jclass clazz = jenv->FindClass("co/quine/slibj/NoFacesFoundException");
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/NoFacesFoundException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -998,7 +1000,7 @@ SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFa
     try {
       result = (arg1)->largestFace(arg2,arg3,arg4,arg5);
     } catch(std::runtime_error& e) {
-      jclass clazz = jenv->FindClass("co/quine/slibj/NoFacesFoundException");
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/NoFacesFoundException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -1017,8 +1019,8 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_delete_1FaceDetection(JNIEn
   {
     try {
       delete arg1;
-    } catch(std::exception& e) {
-      jclass clazz = jenv->FindClass("java/lang/Exception");
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
       jenv->ThrowNew(clazz, e.what());
       return ;
     }
