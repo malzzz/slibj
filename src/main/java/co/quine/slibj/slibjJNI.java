@@ -54,4 +54,7 @@ static {
   public final static native String FaceDetection_largestFace__SWIG_1(long jarg1, FaceDetection jarg1_, String jarg2, long jarg3, String jarg4);
   public final static native String FaceDetection_largestFace__SWIG_2(long jarg1, FaceDetection jarg1_, String jarg2, long jarg3, String jarg4, String jarg5);
   public final static native void delete_FaceDetection(long jarg1);
+  public final static native long new_ImageConversion();
+  public final static native void ImageConversion_image2Array(long jarg1, ImageConversion jarg1_, String jarg2, String jarg3, int jarg4);
+  public final static native void delete_ImageConversion(long jarg1);
 }

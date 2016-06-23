@@ -248,6 +248,7 @@ static void SWIGUNUSED SWIG_JavaThrowException(JNIEnv *jenv, SWIG_JavaExceptionC
 #include "Swig.h"
 #include "Types.h"
 #include "FaceDetection.h"
+#include "ImageConversion.h"
 #include <dlib/image_loader/image_loader.h>
 #include <dlib/image_saver/image_saver.h>
 
@@ -908,6 +909,14 @@ SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFa
       jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/NoFacesFoundException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    } catch(dlib::image_save_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageSaveErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
     }
   }
   jresult = jenv->NewStringUTF((&result)->c_str()); 
@@ -949,6 +958,14 @@ SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFa
       result = (arg1)->largestFace(arg2,arg3,arg4);
     } catch(std::runtime_error& e) {
       jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/NoFacesFoundException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    } catch(dlib::image_save_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageSaveErrorException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
     }
@@ -1003,6 +1020,14 @@ SWIGEXPORT jstring JNICALL Java_co_quine_slibj_slibjJNI_FaceDetection_1largestFa
       jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/NoFacesFoundException");
       jenv->ThrowNew(clazz, e.what());
       return 0;
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    } catch(dlib::image_save_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageSaveErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
     }
   }
   jresult = jenv->NewStringUTF((&result)->c_str()); 
@@ -1016,6 +1041,83 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_delete_1FaceDetection(JNIEn
   (void)jenv;
   (void)jcls;
   arg1 = *(slibc::FaceDetection **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1ImageConversion(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  slibc::ImageConversion *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (slibc::ImageConversion *)new slibc::ImageConversion();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  *(slibc::ImageConversion **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ImageConversion_1image2Array(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3, jint jarg4) {
+  slibc::ImageConversion *arg1 = (slibc::ImageConversion *) 0 ;
+  std::string arg2 ;
+  std::string arg3 ;
+  int arg4 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(slibc::ImageConversion **)&jarg1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return ;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  if(!jarg3) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return ;
+  } 
+  const char *arg3_pstr = (const char *)jenv->GetStringUTFChars(jarg3, 0); 
+  if (!arg3_pstr) return ;
+  (&arg3)->assign(arg3_pstr);
+  jenv->ReleaseStringUTFChars(jarg3, arg3_pstr); 
+  arg4 = (int)jarg4; 
+  {
+    try {
+      (arg1)->image2Array(arg2,arg3,arg4);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_delete_1ImageConversion(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  slibc::ImageConversion *arg1 = (slibc::ImageConversion *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(slibc::ImageConversion **)&jarg1; 
   {
     try {
       delete arg1;
