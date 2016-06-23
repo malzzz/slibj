@@ -330,6 +330,34 @@ SWIGINTERN void std_vector_Sl_sl_ObjectModel_Sg__set(std::vector< sl::ObjectMode
                 else
                     throw std::out_of_range("vector index out of range");
             }
+SWIGINTERN std::vector< float >::const_reference std_vector_Sl_float_Sg__get(std::vector< float > *self,int i){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    return (*self)[i];
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN void std_vector_Sl_float_Sg__set(std::vector< float > *self,int i,std::vector< float >::value_type const &val){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    (*self)[i] = val;
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN std::vector< signed char >::const_reference std_vector_Sl_signed_SS_char_Sg__get(std::vector< signed char > *self,int i){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    return (*self)[i];
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
+SWIGINTERN void std_vector_Sl_signed_SS_char_Sg__set(std::vector< signed char > *self,int i,std::vector< signed char >::value_type const &val){
+                int size = int(self->size());
+                if (i>=0 && i<size)
+                    (*self)[i] = val;
+                else
+                    throw std::out_of_range("vector index out of range");
+            }
 
 #ifdef __cplusplus
 extern "C" {
@@ -855,6 +883,518 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_delete_1ObjectModelVector(J
 }
 
 
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1FloatVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< float > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (std::vector< float > *)new std::vector< float >();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  *(std::vector< float > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1FloatVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< float >::size_type arg1 ;
+  std::vector< float > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< float >::size_type)jarg1; 
+  {
+    try {
+      result = (std::vector< float > *)new std::vector< float >(arg1);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  *(std::vector< float > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_FloatVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  std::vector< float >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< float > const *)arg1)->size();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_FloatVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  std::vector< float >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< float > const *)arg1)->capacity();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_FloatVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  std::vector< float >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  arg2 = (std::vector< float >::size_type)jarg2; 
+  {
+    try {
+      (arg1)->reserve(arg2);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_co_quine_slibj_slibjJNI_FloatVector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  {
+    try {
+      result = (bool)((std::vector< float > const *)arg1)->empty();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_FloatVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  {
+    try {
+      (arg1)->clear();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_FloatVector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jfloat jarg2) {
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  std::vector< float >::value_type *arg2 = 0 ;
+  std::vector< float >::value_type temp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  temp2 = (std::vector< float >::value_type)jarg2; 
+  arg2 = &temp2; 
+  {
+    try {
+      (arg1)->push_back((std::vector< float >::value_type const &)*arg2);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT jfloat JNICALL Java_co_quine_slibj_slibjJNI_FloatVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jfloat jresult = 0 ;
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  int arg2 ;
+  std::vector< float >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    try {
+      try {
+        result = (std::vector< float >::value_type *) &std_vector_Sl_float_Sg__get(arg1,arg2);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return 0;
+      }
+      
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = (jfloat)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_FloatVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jfloat jarg3) {
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  int arg2 ;
+  std::vector< float >::value_type *arg3 = 0 ;
+  std::vector< float >::value_type temp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (std::vector< float >::value_type)jarg3; 
+  arg3 = &temp3; 
+  {
+    try {
+      try {
+        std_vector_Sl_float_Sg__set(arg1,arg2,(float const &)*arg3);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return ;
+      }
+      
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_delete_1FloatVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< float > *arg1 = (std::vector< float > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< float > **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1ByteVector_1_1SWIG_10(JNIEnv *jenv, jclass jcls) {
+  jlong jresult = 0 ;
+  std::vector< signed char > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  {
+    try {
+      result = (std::vector< signed char > *)new std::vector< signed char >();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  *(std::vector< signed char > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1ByteVector_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  jlong jresult = 0 ;
+  std::vector< signed char >::size_type arg1 ;
+  std::vector< signed char > *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (std::vector< signed char >::size_type)jarg1; 
+  {
+    try {
+      result = (std::vector< signed char > *)new std::vector< signed char >(arg1);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  *(std::vector< signed char > **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_ByteVector_1size(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  std::vector< signed char >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< signed char > const *)arg1)->size();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_ByteVector_1capacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  std::vector< signed char >::size_type result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  {
+    try {
+      result = ((std::vector< signed char > const *)arg1)->capacity();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = (jlong)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ByteVector_1reserve(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  std::vector< signed char >::size_type arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  arg2 = (std::vector< signed char >::size_type)jarg2; 
+  {
+    try {
+      (arg1)->reserve(arg2);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_co_quine_slibj_slibjJNI_ByteVector_1isEmpty(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  {
+    try {
+      result = (bool)((std::vector< signed char > const *)arg1)->empty();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ByteVector_1clear(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  {
+    try {
+      (arg1)->clear();
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ByteVector_1add(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jbyte jarg2) {
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  std::vector< signed char >::value_type *arg2 = 0 ;
+  std::vector< signed char >::value_type temp2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  temp2 = (std::vector< signed char >::value_type)jarg2; 
+  arg2 = &temp2; 
+  {
+    try {
+      (arg1)->push_back((std::vector< signed char >::value_type const &)*arg2);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT jbyte JNICALL Java_co_quine_slibj_slibjJNI_ByteVector_1get(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jbyte jresult = 0 ;
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  int arg2 ;
+  std::vector< signed char >::value_type *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  {
+    try {
+      try {
+        result = (std::vector< signed char >::value_type *) &std_vector_Sl_signed_SS_char_Sg__get(arg1,arg2);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return 0;
+      }
+      
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  jresult = (jbyte)*result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ByteVector_1set(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jbyte jarg3) {
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  int arg2 ;
+  std::vector< signed char >::value_type *arg3 = 0 ;
+  std::vector< signed char >::value_type temp3 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  arg2 = (int)jarg2; 
+  temp3 = (std::vector< signed char >::value_type)jarg3; 
+  arg3 = &temp3; 
+  {
+    try {
+      try {
+        std_vector_Sl_signed_SS_char_Sg__set(arg1,arg2,(signed char const &)*arg3);
+      }
+      catch(std::out_of_range &_e) {
+        SWIG_JavaThrowException(jenv, SWIG_JavaIndexOutOfBoundsException, (&_e)->what());
+        return ;
+      }
+      
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_delete_1ByteVector(JNIEnv *jenv, jclass jcls, jlong jarg1) {
+  std::vector< signed char > *arg1 = (std::vector< signed char > *) 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = *(std::vector< signed char > **)&jarg1; 
+  {
+    try {
+      delete arg1;
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return ;
+    }
+  }
+}
+
+
 SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1FaceDetection(JNIEnv *jenv, jclass jcls, jstring jarg1) {
   jlong jresult = 0 ;
   char *arg1 = (char *) 0 ;
@@ -1073,7 +1613,68 @@ SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_new_1ImageConversion(JNIEn
 }
 
 
-SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ImageConversion_1image2Array(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_ImageConversion_1mat2Array(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2) {
+  jlong jresult = 0 ;
+  slibc::ImageConversion *arg1 = (slibc::ImageConversion *) 0 ;
+  cv::Mat *arg2 = 0 ;
+  std::vector< float > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(slibc::ImageConversion **)&jarg1; 
+  arg2 = *(cv::Mat **)&jarg2;
+  if (!arg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "cv::Mat & reference is null");
+    return 0;
+  } 
+  {
+    try {
+      result = (arg1)->mat2Array(*arg2);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  *(std::vector< float > **)&jresult = new std::vector< float >((const std::vector< float > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_ImageConversion_1decodeImage(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
+  jlong jresult = 0 ;
+  slibc::ImageConversion *arg1 = (slibc::ImageConversion *) 0 ;
+  std::vector< signed char > arg2 ;
+  std::vector< signed char > *argp2 ;
+  std::vector< float > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  (void)jarg2_;
+  arg1 = *(slibc::ImageConversion **)&jarg1; 
+  argp2 = *(std::vector< signed char > **)&jarg2; 
+  if (!argp2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null std::vector< signed char >");
+    return 0;
+  }
+  arg2 = *argp2; 
+  {
+    try {
+      result = (arg1)->decodeImage(arg2);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  *(std::vector< float > **)&jresult = new std::vector< float >((const std::vector< float > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ImageConversion_1image2Array_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jstring jarg3, jint jarg4) {
   slibc::ImageConversion *arg1 = (slibc::ImageConversion *) 0 ;
   std::string arg2 ;
   std::string arg3 ;
@@ -1109,6 +1710,40 @@ SWIGEXPORT void JNICALL Java_co_quine_slibj_slibjJNI_ImageConversion_1image2Arra
       return ;
     }
   }
+}
+
+
+SWIGEXPORT jlong JNICALL Java_co_quine_slibj_slibjJNI_ImageConversion_1image2Array_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jstring jarg2, jint jarg3) {
+  jlong jresult = 0 ;
+  slibc::ImageConversion *arg1 = (slibc::ImageConversion *) 0 ;
+  std::string arg2 ;
+  int arg3 ;
+  std::vector< float > result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(slibc::ImageConversion **)&jarg1; 
+  if(!jarg2) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "null string");
+    return 0;
+  } 
+  const char *arg2_pstr = (const char *)jenv->GetStringUTFChars(jarg2, 0); 
+  if (!arg2_pstr) return 0;
+  (&arg2)->assign(arg2_pstr);
+  jenv->ReleaseStringUTFChars(jarg2, arg2_pstr); 
+  arg3 = (int)jarg3; 
+  {
+    try {
+      result = (arg1)->image2Array(arg2,arg3);
+    } catch(dlib::image_load_error& e) {
+      jclass clazz = jenv->FindClass("co/quine/slibj/exceptions/ImageLoadErrorException");
+      jenv->ThrowNew(clazz, e.what());
+      return 0;
+    }
+  }
+  *(std::vector< float > **)&jresult = new std::vector< float >((const std::vector< float > &)result); 
+  return jresult;
 }
 
 

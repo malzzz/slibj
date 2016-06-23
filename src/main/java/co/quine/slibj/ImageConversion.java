@@ -39,8 +39,20 @@ public class ImageConversion {
     this(slibjJNI.new_ImageConversion(), true);
   }
 
+  public FloatVector mat2Array(SWIGTYPE_p_cv__Mat mat) {
+    return new FloatVector(slibjJNI.ImageConversion_mat2Array(swigCPtr, this, SWIGTYPE_p_cv__Mat.getCPtr(mat)), true);
+  }
+
+  public FloatVector decodeImage(ByteVector img) {
+    return new FloatVector(slibjJNI.ImageConversion_decodeImage(swigCPtr, this, ByteVector.getCPtr(img), img), true);
+  }
+
   public void image2Array(String imgpath, String outpath, int size) {
-    slibjJNI.ImageConversion_image2Array(swigCPtr, this, imgpath, outpath, size);
+    slibjJNI.ImageConversion_image2Array__SWIG_0(swigCPtr, this, imgpath, outpath, size);
+  }
+
+  public FloatVector image2Array(String imgpath, int size) {
+    return new FloatVector(slibjJNI.ImageConversion_image2Array__SWIG_1(swigCPtr, this, imgpath, size), true);
   }
 
 }
